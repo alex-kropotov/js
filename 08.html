@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // С помощью рекурсии организовать функцию возведения числа в степень.
+  // Формат: function power(val, pow), где val – заданное число, pow – степень.
+
+  function powerStep(val, mult, pow) {
+    if (pow-- > 0) {
+      val = powerStep(val * mult, mult, pow);
+    }
+    return val;
+  }
+
+  function power(val, pow) {
+    if ((Number.isInteger(pow)) && (pow > 0)) {
+      return powerStep(1, val, pow);
+    }
+    else {
+      alert('Степень должнаа быть положительным целым');
+    }
+  }
+
+  alert(power(-2, 5));
+</script>
+
+</body>
+</html>
