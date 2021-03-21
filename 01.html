@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  let number = 2; // начинаем с единицы потому что 0 и 1 нельзя рассматривать. Простые числа это натуральные числа больше 1
+  let simpleArray = [];
+  let isSimple;
+  while (number <= 100) {
+    if (simpleArray.length === 0) {
+      simpleArray.push(number);
+    }
+    else {
+      isSimple = true;
+      for (let i = 0; i < simpleArray.length; i++) {
+        if (number % simpleArray[i] === 0) {
+          isSimple = false;
+          break;
+        }
+      }
+      if (isSimple) {
+        simpleArray.push(number);
+      }
+    }
+    number++;
+  }
+  simpleArray.forEach(
+      function(item) {
+        console.log(item);
+      }
+  );
+</script>
+
+</body>
+</html>

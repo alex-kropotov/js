@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  let goods = [
+    {
+      name: 'Чашка',
+      price: 2.40,
+      qty: 2,
+    },
+    {
+      name: 'Ложка',
+      price: 1.80,
+      qty: 3,
+    },
+    {
+      name: 'Тарелка',
+      price: 9.60,
+      qty: 1,
+    }
+  ];
+
+  function countBasketPrice(basket) {
+    let sum = 0;
+    goods.forEach(
+        function (good) {
+          sum += good.price * good.qty;
+        }
+    );
+    return sum.toFixed(2);
+  }
+
+  alert(countBasketPrice(goods));
+</script>
+
+</body>
+</html>
