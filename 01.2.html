@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  'use strict';
+
+  function Post(author, text, date) {
+    this.author = author;
+    this.text = text;
+    this.date = date;
+  }
+
+  Post.prototype.edit = function(text) {
+    this.text = text;
+  }
+
+  function AttachedPost(author, text, date) {
+    Post.call(this, author, text, date);
+    this.highlighted = false;
+  }
+
+  AttachedPost.prototype = Object.create(Post.prototype);
+  AttachedPost.prototype.constructor = AttachedPost;
+
+  AttachedPost.prototype.makeTextHighlighted = function() {
+    this.highlighted = !this.highlighted;
+  }
+
+  let post = new AttachedPost('Федя', 'Важный пост', '2021-03-28');
+  alert(post.text);
+  post.edit('Не важный пост');
+  alert(post.text);
+  post.makeTextHighlighted();
+  alert(post.highlighted);
+
+
+  class PostNew {
+    constructor(author, text, date) {
+      this.author = author;
+      this.text = text;
+      this.date = date;
+    }
+
+    edit(text) {
+      this.text = text;
+    }
+  }
+
+  class AttachedPostNew extends PostNew {
+    constructor(author, text, date) {
+      super(author, text, date);
+      this.highlighted = false;
+    }
+
+    makeTextHighlighted() {
+      this.highlighted = !this.highlighted;
+    }
+  }
+
+  let postNew = new AttachedPostNew('Вася', 'Важный пост', '2021-03-28');
+  alert(postNew.text);
+  postNew.edit('Не важный пост');
+  alert(postNew.text);
+  postNew.makeTextHighlighted();
+  alert(postNew.highlighted);
+
+</script>
+</body>
+</html>
