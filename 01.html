@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  'use strict';
+  function parseNumber(number) {
+    if (!Number.isInteger(number) || number < 0 || number > 999) {
+      console.log(number + 'не соответстует условиям');
+      return {}
+    }
+    let hundreds = Math.floor(number / 100);
+    let tens = Math.floor((number - hundreds * 100) / 10);
+    let units = Math.floor(number - hundreds * 100 - tens * 10);
+    return {
+      hundreds: hundreds,
+      tens: tens,
+      unit: units
+    }
+  }
+  let obj = parseNumber(23)
+  alert(obj.hundreds + ' ' + obj.tens + ' ' + obj.unit);
+</script>
+</body>
+</html>
