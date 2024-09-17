@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  let a = 1, b = 1, c, d;
+  c = ++a; alert(c);           // 2 сначала увеличили на 1 потом присвоили
+  d = b++; alert(d);           // 1 сначала присвоили потом увеличили
+  c = (2+ ++a); alert(c);      // 5 увеличили a перед использованием в сложении
+  d = (2+ b++); alert(d);      // 4 увеличили b после использования с сложении
+  alert(a);                    // 3 два раза увеличивали а на 1
+  alert(b);                    // 3 два раза увеличивали b на 1
+</script>
+</body>
+</html>
